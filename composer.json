@@ -1,0 +1,13 @@
+{
+    "name": "braid/piction",
+    "description": "Piction API library",
+    "type": "laravel",
+    "authors": [
+        {
+            "name": "Chris Adams",
+            "email": "chris@wearebraid.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
