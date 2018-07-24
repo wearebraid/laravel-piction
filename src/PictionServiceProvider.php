@@ -1,13 +1,13 @@
 <?php
 
-namespace Braid\Piction;
+namespace Wearebraid\Piction;
 
 use Illuminate\Support\ServiceProvider;
-use Braid\Piction\Commands\PictionIngest;
-use Braid\Piction\Commands\PictionDeleted;
-use Braid\Piction\Observers\RecordObserver;
-use Braid\Piction\Commands\PictionCollections;
-use Braid\Piction\Observers\ScoutRecordObserver;
+use Wearebraid\Piction\Commands\PictionIngest;
+use Wearebraid\Piction\Commands\PictionDeleted;
+use Wearebraid\Piction\Observers\RecordObserver;
+use Wearebraid\Piction\Commands\PictionCollections;
+use Wearebraid\Piction\Observers\ScoutRecordObserver;
 
 class PictionServiceProvider extends ServiceProvider
 {
@@ -33,9 +33,9 @@ class PictionServiceProvider extends ServiceProvider
         }
 
         if (config('piction.use_scout')) {
-            \Braid\Piction\Models\Scout\Record::observe(ScoutRecordObserver::class);
+            \Wearebraid\Piction\Models\Scout\Record::observe(ScoutRecordObserver::class);
         } else {
-            \Braid\Piction\Models\Record::observe(RecordObserver::class);
+            \Wearebraid\Piction\Models\Record::observe(RecordObserver::class);
         }
     }
 
@@ -46,7 +46,7 @@ class PictionServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('braid-piction', function () {
+        $this->app->bind('wearebraid-piction', function () {
             return new Piction();
         });
     }

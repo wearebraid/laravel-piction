@@ -1,6 +1,6 @@
 <?php
 
-namespace Braid\Piction;
+namespace Wearebraid\Piction;
 
 use GuzzleHttp\Pool;
 use GuzzleHttp\Client;
@@ -41,7 +41,7 @@ class Piction
 
     public function recordModel()
     {
-        return 'Braid\Piction\Models\\' .
+        return 'Wearebraid\Piction\Models\\' .
             (config('piction.use_scout', false) ? 'Scout\Record' : 'Record');
     }
 

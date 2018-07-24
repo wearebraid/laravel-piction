@@ -7,7 +7,7 @@ This is a package for quick integration with Pictino for storing records in a mo
 ### Features
 
 ### Installation
-1. Install composer package: `composer require braid/piction`
+1. Install composer package: `composer require wearebraid/piction`
 2. Install config file 
 ```
 php artisan vendor:publish --provider="Braid\Piction\PictionServiceProvider"
@@ -23,12 +23,12 @@ PICTION_PASSWORD=password
 ...
 'providers' => [
 	...
-	Braid\Piction\PictionServiceProvider::class,
+	Wearebraid\Piction\PictionServiceProvider::class,
 	...
 ],
 'aliases' => [
 	...
-	'Piction' => Braid\Piction\Facades\Piction::class,
+	'Piction' => Wearebraid\Piction\Facades\Piction::class,
 	...
 ],
 ...
@@ -49,7 +49,7 @@ PICTION_PASSWORD=password
 
 Why use [Scout](https://github.com/laravel/scout)? Because it is **AWESOME!** Follow the [Scout setup](https://laravel.com/docs/master/scout#installation). Once you have it configured, in `config/piction.php` set `'use_scout' => true`
 
-From then on, instead of using `Braid\Piction\Models\Record` as your main record model, switch to `Braid\Piction\Models\Scout\Record`
+From then on, instead of using `Wearebraid\Piction\Models\Record` as your main record model, switch to `Wearebraid\Piction\Models\Scout\Record`
 
 This model extends the normal record model adding the `Searchable` functions for indexing the records for quick searches. Then from within a controller you can then use `Record::search('spiders')->paginate(20);`
 

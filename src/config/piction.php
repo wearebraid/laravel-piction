@@ -20,9 +20,9 @@ return [
      * SCOUT
      * ------------------------------------------------------------------------
      * When not using Scout, you will want to use:
-     * \Braid\Piction\Models\Record as your Record model
+     * \Wearebraid\Piction\Models\Record as your Record model
      * If you are using Scout you should use:
-     * \Braid\Piction\Models\Scout\Record
+     * \Wearebraid\Piction\Models\Scout\Record
      * as your Record model.
      */
 

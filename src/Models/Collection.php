@@ -1,8 +1,8 @@
 <?php
 
-namespace Braid\Piction\Models;
+namespace Wearebraid\Piction\Models;
 
-use Braid\Piction\Facades\Piction;
+use Wearebraid\Piction\Facades\Piction;
 use Illuminate\Database\Eloquent\Model;
 
 class Collection extends Model

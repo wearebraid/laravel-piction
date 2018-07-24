@@ -1,10 +1,10 @@
 <?php
 
-namespace Braid\Piction\Models\Scout;
+namespace Wearebraid\Piction\Models\Scout;
 
 use Laravel\Scout\Searchable;
 
-class Record extends \Braid\Piction\Models\Record
+class Record extends \Wearebraid\Piction\Models\Record
 {
     use Searchable;
 

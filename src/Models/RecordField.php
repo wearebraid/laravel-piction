@@ -1,6 +1,6 @@
 <?php
 
-namespace Braid\Piction\Models;
+namespace Wearebraid\Piction\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

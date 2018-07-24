@@ -1,6 +1,6 @@
 <?php
 
-namespace Braid\Piction\Models;
+namespace Wearebraid\Piction\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,7 +34,7 @@ class Record extends Model
     public function collection()
     {
         return $this->belongsTo(
-            Braid\Piction\Models\Collection::class,
+            Wearebraid\Piction\Models\Collection::class,
             'collection_id',
             'collection_id'
         );

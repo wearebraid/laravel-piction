@@ -1,12 +1,12 @@
 <?php
 
-namespace Braid\Piction\Commands;
+namespace Wearebraid\Piction\Commands;
 
 use Carbon\Carbon;
-use Braid\Piction\Piction;
+use Wearebraid\Piction\Piction;
 use Illuminate\Console\Command;
-use Braid\Piction\Models\Collection;
-use Braid\Piction\Models\RecordField;
+use Wearebraid\Piction\Models\Collection;
+use Wearebraid\Piction\Models\RecordField;
 use Symfony\Component\Console\Helper\ProgressBar;
 
 class PictionIngest extends Command

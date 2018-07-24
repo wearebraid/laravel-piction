@@ -1,5 +1,5 @@
 {
-    "name": "braid/piction",
+    "name": "wearebraid/piction",
     "description": "Piction API library",
     "type": "laravel",
     "authors": [

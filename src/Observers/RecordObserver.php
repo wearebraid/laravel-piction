@@ -1,8 +1,8 @@
 <?php
 
-namespace Braid\Piction\Observers;
+namespace Wearebraid\Piction\Observers;
 
-use Braid\Piction\Models\Record;
+use Wearebraid\Piction\Models\Record;
 use Illuminate\Support\Facades\Log;
 
 class RecordObserver
@@ -10,7 +10,7 @@ class RecordObserver
     /**
      * Handle the record "saving" event.
      *
-     * @param  \Braid\Piction\Models\Record  $record
+     * @param  \Wearebraid\Piction\Models\Record  $record
      * @return void
      */
     public function saving(Record $record)

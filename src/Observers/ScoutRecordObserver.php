@@ -1,16 +1,16 @@
 <?php
 
-namespace Braid\Piction\Observers;
+namespace Wearebraid\Piction\Observers;
 
 use Illuminate\Support\Facades\Log;
-use Braid\Piction\Models\Scout\Record;
+use Wearebraid\Piction\Models\Scout\Record;
 
 class ScoutRecordObserver
 {
     /**
      * Handle the record "saving" event.
      *
-     * @param  \Braid\Piction\Models\Record  $record
+     * @param  \Wearebraid\Piction\Models\Record  $record
      * @return void
      */
     public function saving(Record $record)

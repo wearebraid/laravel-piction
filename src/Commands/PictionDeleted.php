@@ -1,10 +1,10 @@
 <?php
 
-namespace Braid\Piction\Commands;
+namespace Wearebraid\Piction\Commands;
 
 use Illuminate\Console\Command;
-use Braid\Piction\Models\Record;
-use Braid\Piction\Facades\Piction;
+use Wearebraid\Piction\Models\Record;
+use Wearebraid\Piction\Facades\Piction;
 use Symfony\Component\Console\Helper\ProgressBar;
 
 class PictionDeleted extends Command

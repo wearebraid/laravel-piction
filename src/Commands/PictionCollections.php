@@ -1,10 +1,10 @@
 <?php
 
-namespace Braid\Piction\Commands;
+namespace Wearebraid\Piction\Commands;
 
-use Braid\Piction\Piction;
+use Wearebraid\Piction\Piction;
 use Illuminate\Console\Command;
-use Braid\Piction\Models\Collection;
+use Wearebraid\Piction\Models\Collection;
 
 class PictionCollections extends Command
 {
