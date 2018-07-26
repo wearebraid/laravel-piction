@@ -10,7 +10,7 @@ class Record extends \Wearebraid\Piction\Models\Record
 
     public function searchableAs()
     {
-        return $this->collection_id;
+        return 'records';
     }
 
     public function toSearchableArray()
