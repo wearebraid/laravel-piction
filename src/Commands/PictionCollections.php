@@ -84,6 +84,10 @@ class PictionCollections extends Command
                 }
                 $dc->delete();
             }
+
+            $this->call('piction:deleted', [
+                '--surl' => $this->piction->getSURL(),
+            ]);
         } else {
             $this->error('ERROR: Could not retrieve data.');
         }

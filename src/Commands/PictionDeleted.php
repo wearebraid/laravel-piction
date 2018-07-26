@@ -4,7 +4,7 @@ namespace Wearebraid\Piction\Commands;
 
 use Illuminate\Console\Command;
 use Wearebraid\Piction\Models\Record;
-use Wearebraid\Piction\Facades\Piction;
+use Wearebraid\Piction\Piction;
 use Symfony\Component\Console\Helper\ProgressBar;
 
 class PictionDeleted extends Command
@@ -14,7 +14,7 @@ class PictionDeleted extends Command
      *
      * @var string
      */
-    protected $signature = 'piction:deleted';
+    protected $signature = 'piction:deleted {--surl=}';
 
     /**
      * The console command description.
@@ -41,13 +41,14 @@ class PictionDeleted extends Command
     public function handle()
     {
         $this->info("Attempting authentication to Piction...\n");
-        $umos = Piction::getDeletedUmos();
+        $this->piction = new Piction($this->option('surl'));
+        $umos = $this->piction->getDeletedUmos();
 
         if ($umos) {
             $this->info(count($umos) . " deleted " .
                 str_plural('record', count($umos)));
             
-            $recordModel = Piction::recordModel();
+            $recordModel = $this->piction->recordModel();
             $records = $recordModel::whereIn('umo_id', $umos)->get();
 
             $max = count($records);
