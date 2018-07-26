@@ -10,7 +10,7 @@ This is a package for quick integration with Pictino for storing records in a mo
 1. Install composer package: `composer require wearebraid/piction`
 2. Install config file 
 ```
-php artisan vendor:publish --provider="Braid\Piction\PictionServiceProvider"
+php artisan vendor:publish --provider="Wearebraid\Piction\PictionServiceProvider"
 ```
 3. Add the following items to your Laravel `.env` file:
 ```
