@@ -15,7 +15,13 @@ class Record extends \Wearebraid\Piction\Models\Record
 
     public function toSearchableArray()
     {
-        return $this->toArray();
+        $data = $this->toArray();
+        $metaData = $data['metadata'];
+        $data['metadata'] = [];
+        foreach ($metaData as $key => $md) {
+            array_set($data, 'metadata.' . $key, $md);
+        }
+        return $data;
     }
 
     public function getScoutKey()
