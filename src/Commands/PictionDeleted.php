@@ -47,11 +47,11 @@ class PictionDeleted extends Command
         if ($umos) {
             $this->info(count($umos) . " deleted " .
                 str_plural('record', count($umos)));
-            
-            $recordModel = $this->piction->recordModel();
-            $records = $recordModel::whereIn('umo_id', $umos)->get();
 
-            $max = count($records);
+            $recordModel = $this->piction->recordModel();
+            // $max = $recordModel::whereIn('umo_id', $umos)->count();
+
+            $max = count($umos);
             $this->info($max . " " . str_plural('record', $max) .
                 " to be deleted from database");
             
@@ -60,8 +60,11 @@ class PictionDeleted extends Command
                 $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% '.
                     '%elapsed:6s%/%estimated:-6s% %memory:6s%');
                 $progress->start();
-                foreach ($records as $record) {
-                    $record->delete();
+                foreach ($umos as $umo) {
+                    $record = $recordModel::where('umo_id', $umo)->first();
+                    if ($record) {
+                        $record->delete();
+                    }
                     $progress->advance();
                 }
                 $progress->finish();

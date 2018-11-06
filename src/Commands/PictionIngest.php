@@ -130,7 +130,7 @@ class PictionIngest extends Command
                         $progress->start();
                     } else {
                         $this->info("No changes.");
-                        return;
+                        break;
                     }
                 }
                 
