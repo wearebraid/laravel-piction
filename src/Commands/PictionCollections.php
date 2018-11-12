@@ -2,9 +2,11 @@
 
 namespace Wearebraid\Piction\Commands;
 
-use Wearebraid\Piction\Piction;
 use Illuminate\Console\Command;
+use Wearebraid\Piction\Piction;
 use Wearebraid\Piction\Models\Collection;
+use Illuminate\Support\Facades\Notification;
+use Wearebraid\Piction\Notifications\PictionSlackNotification;
 
 class PictionCollections extends Command
 {
@@ -42,6 +44,10 @@ class PictionCollections extends Command
     public function handle()
     {
         $this->info("Retrieving collections from Piction...\n");
+        if (env('PICTION_SLACK_WEBHOOK')) {
+            Notification::send(Collection::first(), new PictionSlackNotification('Piction Data Update Started...'));
+        }
+
         $this->piction = new Piction();
         $collections = $this->piction->getCollections();
 
@@ -88,8 +94,15 @@ class PictionCollections extends Command
             $this->call('piction:deleted', [
                 '--surl' => $this->piction->getSURL(),
             ]);
+            
+            if (env('PICTION_SLACK_WEBHOOK')) {
+                Notification::send(Collection::first(), new PictionSlackNotification('Piction Data Updated!'));
+            }
         } else {
             $this->error('ERROR: Could not retrieve data.');
+            if (env('PICTION_SLACK_WEBHOOK')) {
+                Notification::send(Collection::first(), new PictionSlackNotification('Piction Data FAILED!'));
+            }
         }
     }
 }
