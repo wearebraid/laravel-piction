@@ -2,6 +2,8 @@
 
 namespace Wearebraid\Piction\Commands;
 
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
 use Illuminate\Console\Command;
 use Wearebraid\Piction\Piction;
 use Wearebraid\Piction\Models\Collection;
@@ -44,6 +46,7 @@ class PictionCollections extends Command
     public function handle()
     {
         $this->info("Retrieving collections from Piction...\n");
+        $started = Carbon::now();
         if (env('PICTION_SLACK_WEBHOOK')) {
             Notification::send(Collection::first(), new PictionSlackNotification('Piction Data Update Started...'));
         }
@@ -96,7 +99,8 @@ class PictionCollections extends Command
             ]);
             
             if (env('PICTION_SLACK_WEBHOOK')) {
-                Notification::send(Collection::first(), new PictionSlackNotification('Piction Data Updated!'));
+                $duration = Carbon\CarbonInterval::seconds(Carbon\Carbon::now()->diffInSeconds($started));
+                Notification::send(Collection::first(), new PictionSlackNotification('Piction Data Updated! Total time: ' . $duration));
             }
         } else {
             $this->error('ERROR: Could not retrieve data.');
